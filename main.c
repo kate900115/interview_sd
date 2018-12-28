@@ -55,6 +55,9 @@ void trainLayer(Layer *l){
     //displayImageFrame(5,5);
 
     int errCount = 0;
+
+    // for test performance
+    time_t startTrainingTime = time(NULL); 
     
     // Loop through all images in the file
     for (int imgCount=0; imgCount<MNIST_MAX_TRAINING_IMAGES; imgCount++){
@@ -85,6 +88,10 @@ void trainLayer(Layer *l){
         //displayProgress(imgCount, errCount, 3, 66);
         
     }
+
+    time_t endTrainingTime = time(NULL);
+    double trainingTime = difftime(endTrainingTime, startTrainingTime);
+    printf("\n	Training time is %.1f sec\n", trainingTime);
     
     // Close files
     fclose(imageFile);
@@ -113,7 +120,9 @@ void testLayer(Layer *l){
     //displayImageFrame(7,5);
     
     int errCount = 0;
-    
+   
+    time_t startTestingTime = time(NULL);
+ 
     // Loop through all images in the file
     for (int imgCount=0; imgCount<MNIST_MAX_TESTING_IMAGES; imgCount++){
         
@@ -145,6 +154,11 @@ void testLayer(Layer *l){
         
     }
     
+    time_t endTestingTime = time(NULL);
+    double testingTime = difftime(endTestingTime, startTestingTime);
+
+    printf(" \n testing time is: %.1f sec \n\n", testingTime);
+
     // Close files
     fclose(imageFile);
     fclose(labelFile);
