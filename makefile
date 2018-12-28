@@ -15,10 +15,7 @@ $(INPUTS): gzip.zip
 	touch gzip/*
 
 clean:
-	rm -rf gzip
-	git clean -fx
-	rm -rf mnist-1lnn
-
+	rm -rf bin/mnist-1lnn
 %.tgz: clean
 	git clone . $*
 	tar czf $@ --exclude $*/.git $*
