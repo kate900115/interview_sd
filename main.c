@@ -52,7 +52,7 @@ void trainLayer(Layer *l){
     
     
     // screen output for monitoring progress
-    displayImageFrame(5,5);
+    //displayImageFrame(5,5);
 
     int errCount = 0;
     
@@ -60,7 +60,7 @@ void trainLayer(Layer *l){
     for (int imgCount=0; imgCount<MNIST_MAX_TRAINING_IMAGES; imgCount++){
         
         // display progress
-        displayLoadingProgressTraining(imgCount,3,5);
+        //displayLoadingProgressTraining(imgCount,3,5);
         
         // Reading next image and corresponding label
         MNIST_Image img = getImage(imageFile);
@@ -70,7 +70,7 @@ void trainLayer(Layer *l){
         Vector targetOutput;
         targetOutput = getTargetOutput(lbl);
         
-        displayImage(&img, 6,6);
+        //displayImage(&img, 6,6);
      
         // loop through all output cells for the given image
         for (int i=0; i < NUMBER_OF_OUTPUT_CELLS; i++){
@@ -80,9 +80,9 @@ void trainLayer(Layer *l){
         int predictedNum = getLayerPrediction(l);
         if (predictedNum!=lbl) errCount++;
         
-        printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
+      //  printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
 
-        displayProgress(imgCount, errCount, 3, 66);
+        //displayProgress(imgCount, errCount, 3, 66);
         
     }
     
@@ -110,7 +110,7 @@ void testLayer(Layer *l){
     
     
     // screen output for monitoring progress
-    displayImageFrame(7,5);
+    //displayImageFrame(7,5);
     
     int errCount = 0;
     
@@ -128,7 +128,7 @@ void testLayer(Layer *l){
         Vector targetOutput;
         targetOutput = getTargetOutput(lbl);
         
-        displayImage(&img, 8,6);
+       // displayImage(&img, 8,6);
         
         // loop through all output cells for the given image
         for (int i=0; i < NUMBER_OF_OUTPUT_CELLS; i++){
@@ -141,7 +141,7 @@ void testLayer(Layer *l){
         
         printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
         
-        displayProgress(imgCount, errCount, 5, 66);
+        //displayProgress(imgCount, errCount, 5, 66);
         
     }
     
