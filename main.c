@@ -80,7 +80,7 @@ void trainLayer(Layer *l){
         int predictedNum = getLayerPrediction(l);
         if (predictedNum!=lbl) errCount++;
         
-      //  printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
+        //printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
 
         //displayProgress(imgCount, errCount, 3, 66);
         
@@ -139,7 +139,7 @@ void testLayer(Layer *l){
         int predictedNum = getLayerPrediction(l);
         if (predictedNum!=lbl) errCount++;
         
-        printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
+        //printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
         
         //displayProgress(imgCount, errCount, 5, 66);
         
