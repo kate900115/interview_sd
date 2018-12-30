@@ -63,7 +63,7 @@ void trainLayer(Layer *l){
     for (int imgCount=0; imgCount<MNIST_MAX_TRAINING_IMAGES; imgCount++){
         
         // display progress
-        displayLoadingProgressTraining(imgCount,3,5);
+        //displayLoadingProgressTraining(imgCount,3,5);
         
         // Reading next image and corresponding label
         MNIST_Image img = getImage(imageFile);
@@ -85,13 +85,15 @@ void trainLayer(Layer *l){
         
         //printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
 
-        displayProgress(imgCount, errCount, 3, 66);
+        //displayProgress(imgCount, errCount, 3, 66);
         
     }
 
     time_t endTrainingTime = time(NULL);
     double trainingTime = difftime(endTrainingTime, startTrainingTime);
-    printf("\n	Training time is %.1f sec\n", trainingTime);
+    printf("Training time is %.1f sec\n", trainingTime);
+    double successRate = 100.0 - (double)errCount/(double)(MNIST_MAX_TRAINING_IMAGES)*100;
+    printf("training successful-rate = %.2f%%\n", successRate);
     
     // Close files
     fclose(imageFile);
@@ -127,7 +129,7 @@ void testLayer(Layer *l){
     for (int imgCount=0; imgCount<MNIST_MAX_TESTING_IMAGES; imgCount++){
         
         // display progress
-        displayLoadingProgressTesting(imgCount,5,5);
+        //displayLoadingProgressTesting(imgCount,5,5);
         
         // Reading next image and corresponding label
         MNIST_Image img = getImage(imageFile);
@@ -150,14 +152,15 @@ void testLayer(Layer *l){
         
         //printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
         
-        displayProgress(imgCount, errCount, 5, 66);
+        //displayProgress(imgCount, errCount, 5, 66);
         
     }
     
     time_t endTestingTime = time(NULL);
     double testingTime = difftime(endTestingTime, startTestingTime);
-
-    printf(" \n testing time is: %.1f sec \n\n", testingTime);
+    double successRate = 100.0 - (double)errCount/(double)(MNIST_MAX_TESTING_IMAGES)*100;
+    printf("testing time is: %.1f sec \n\n", testingTime);
+    printf("testing successful-rate = %.2f%%\n", testingTime);
 
     // Close files
     fclose(imageFile);
