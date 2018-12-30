@@ -63,7 +63,7 @@ void trainLayer(Layer *l){
     for (int imgCount=0; imgCount<MNIST_MAX_TRAINING_IMAGES; imgCount++){
         
         // display progress
-        //displayLoadingProgressTraining(imgCount,3,5);
+        displayLoadingProgressTraining(imgCount,3,5);
         
         // Reading next image and corresponding label
         MNIST_Image img = getImage(imageFile);
@@ -85,7 +85,7 @@ void trainLayer(Layer *l){
         
         //printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
 
-        //displayProgress(imgCount, errCount, 3, 66);
+        displayProgress(imgCount, errCount, 3, 66);
         
     }
 
@@ -150,7 +150,7 @@ void testLayer(Layer *l){
         
         //printf("\n      Prediction: %d   Actual: %d ",predictedNum, lbl);
         
-        //displayProgress(imgCount, errCount, 5, 66);
+        displayProgress(imgCount, errCount, 5, 66);
         
     }
     
